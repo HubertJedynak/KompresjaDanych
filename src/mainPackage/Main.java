@@ -28,7 +28,7 @@ public class Main extends Application {
         }).start();
 
     }
-
+    // funkcja rysujaca fraktale
     public void rysuj(Canvas canvas,GraphicsContext graphicsContext){
         graphicsContext.setFill(Color.GREEN);
         long seed = 1234;
