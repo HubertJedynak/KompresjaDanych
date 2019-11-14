@@ -27,22 +27,24 @@ public class Main extends Application {
                 rysuj(canvas,graphicsContext);
         }).start();
 
-
     }
 
     public void rysuj(Canvas canvas,GraphicsContext graphicsContext){
         graphicsContext.setFill(Color.GREEN);
+        long seed = 1234;
         double w = 0;
         double dh = 500/2;
 
         while (w<500) {
-            double dh1 = dh + new Random().nextInt(50) - 25;
-            double dw = new Random().nextInt(50);
+            seed = new Random(seed).nextLong();
+
+            double dh1 = dh + new Random(seed).nextInt(4) - (double)(4-1)/2;
+            double dw = new Random(seed).nextInt(2);
 
 
             double x[] = {w,w,w+dw,w+dw};
             double y[] = {500,500-dh,500-dh1,500};
-            System.out.println(w+" "+dh);
+            //System.out.println(w+" "+dh);
             graphicsContext.fillPolygon(x, y, x.length);
             dh = dh1;
             w = w + dw;
