@@ -29,7 +29,7 @@ public class Main extends Application {
 
 
     }
-
+    // funkcja rysujaca fraktale
     public void rysuj(Canvas canvas,GraphicsContext graphicsContext){
         graphicsContext.setFill(Color.GREEN);
         double w = 0;
