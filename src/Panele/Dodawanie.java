@@ -1,36 +1,31 @@
 package panele;
 
-import Elementy.Element;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import mainPackage.Main;
 
 public class Dodawanie extends Pane {
-    static Label lDodawanie;
+    Label lDodawanie;
 
-    static Label lR,lG,lB;
-    public static Slider sR,sG,sB;
+    Label lR,lG,lB;
+    Slider sR,sG,sB;
 
-    static Canvas cKolor;
-    static GraphicsContext gcKolor;
+    Canvas cKolor;
+    GraphicsContext gcKolor;
 
-    public static Label lWarstwa, lWarstwaWartosc;
-    static Button bLewo, bPrawo;
+    Label lWarstwa, lWarstwaWartosc;
+    Button bLewo, bPrawo;
 
-    static Label lDetalicznosc;
-    public static Slider sDetalicznosc;
+    Label lDetalicznosc;
+    Slider sDetalicznosc;
 
-    static Label lSeed;
-    public static TextField tfSeed;
-
-    static Button bRysuj;
-
-    public static ChoiceBox<String> cbWzorce;
-
-    public static int warstwa=0;
+    Label lSeed;
+    TextField tfSeed;
 
     public Dodawanie(){
         super();
@@ -130,34 +125,22 @@ public class Dodawanie extends Pane {
         bLewo = new Button();
         bLewo.setLayoutX(110);
         bLewo.setLayoutY(180);
-        bLewo.setText("<-for");
+        bLewo.setText("<-");
         bLewo.setPrefSize(50,30);
-        bLewo.setOnAction(event -> {
-            if(warstwa>0){
-                warstwa--;
-                lWarstwaWartosc.setText(warstwa + "/" + Main.listaElementow.size());
-            }
-        });
         getChildren().add(bLewo);
 
         bPrawo = new Button();
         bPrawo.setLayoutX(170);
         bPrawo.setLayoutY(180);
-        bPrawo.setText("back->");
-        bPrawo.setPrefSize(60,30);
-        bPrawo.setOnAction(event -> {
-            if(warstwa < Main.listaElementow.size()){
-                warstwa++;
-                lWarstwaWartosc.setText(warstwa + "/" + Main.listaElementow.size());
-            }
-        });
+        bPrawo.setText("->");
+        bPrawo.setPrefSize(50,30);
         getChildren().add(bPrawo);
 
         lWarstwaWartosc = new Label();
         lWarstwaWartosc.setLayoutX(280);
         lWarstwaWartosc.setLayoutY(180);
-        lWarstwaWartosc.setPrefSize(150,30);
-        lWarstwaWartosc.setText("0/0");
+        lWarstwaWartosc.setPrefSize(120,30);
+        lWarstwaWartosc.setText("0");
         getChildren().add(lWarstwaWartosc);
 
 
@@ -201,37 +184,6 @@ public class Dodawanie extends Pane {
             }
         });
         getChildren().add(tfSeed);
-
-        bRysuj = new Button();
-        bRysuj.setLayoutX(0);
-        bRysuj.setLayoutY(350);
-        bRysuj.setPrefSize(100,30);
-        bRysuj.setText("rysuj");
-        bRysuj.setOnAction(event -> {
-            // zrobic niewidzialny panel i guzik rysuj
-            Main.lTrybRysowania.setText("tryb rysowania ON");
-            Main.trybRysowania = true;
-            Main.pDodawanie.setVisible(false);
-            Main.bDodaj.setVisible(false);
-            Main.bUsun.setVisible(false);
-            Main.bTlo.setVisible(false);
-            Main.bOdswiez.setVisible(false);
-        });
-        getChildren().add(bRysuj);
-
-        cbWzorce = new ChoiceBox<>();
-        cbWzorce.setLayoutX(150);
-        cbWzorce.setLayoutY(300);
-        cbWzorce.setPrefSize(100,50);
-        cbWzorce.getItems().add("Trawa");
-        cbWzorce.getItems().add("Gory");
-        cbWzorce.getItems().add("Chmury");
-        // cbWzorce.getItems().add("Drzewa");
-        cbWzorce.setValue("Trawa");
-        getChildren().add(cbWzorce);
-
-
-
 
     }
 

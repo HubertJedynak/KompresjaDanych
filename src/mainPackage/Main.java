@@ -184,8 +184,8 @@ public class Main extends Application {
 
         new Thread(() -> {
             try { Thread.sleep(1000); } catch (Exception e) { e.printStackTrace(); }
-                //graphicsContext.setFill(Color.STEELBLUE);
-                graphicsContext.fillRect(0,0,obraz.getWidth(),obraz.getHeight());
+            //graphicsContext.setFill(Color.STEELBLUE);
+            graphicsContext.fillRect(0,0,obraz.getWidth(),obraz.getHeight());
 //                rysuj(obraz,graphicsContext);
         }).start();
 
